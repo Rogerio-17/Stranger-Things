@@ -8,10 +8,11 @@
     <!-- Aqui você referencia o arquivo CSS -->
     <link rel="stylesheet" href="/css/styles.css">
   </head>
-  <body class="light-theme">
+  <body class="dark-theme">
     <header>
       <audio id="music">
-        <source src="/assets/musics/normal-world.mpeg" />
+        <source class="dark-theme" src="/assets/musics/inverted-world.mpeg"/>
+        <source class="light-theme" src="/assets/musics/normal-world.mpeg"/>
       </audio>
 
       <div class="header-content">
@@ -20,17 +21,18 @@
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur eveniet molestias cumque vel, facere alias obcaecati totam, impedit adipisci numquam provident consequuntur ea quidem minus. Quas iusto ad esse eius! alias obcaecati totam, impedit adipisci numquam provident consequuntur ea quidem minus. Quas iusto ad esse eius!
         </p>
 
-        <button id="switch-theme-button" onclick="switchTheme()">Inverter mundos</button>
+        <button id="switch-theme-button" class="invert-element" onclick="switchTheme()">Inverter mundos</button>
 
       </div>
       <div id="top-characters" class="world-characters"></div>
     </header>
 
-    <main>      
+    <main>   
+      <div id="bottom-characters" class="world-characters"></div>
       <section id="section-inverted-world" class="container">
 
-       <div class="section-texts">
-        <h1>O mundo invertido</h1>
+       <div class="section-texts invert-element">
+        <h2>O mundo invertido</h2>
 
         <p role="text">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Saepe inventore quibusdam autem in voluptatibus laudantium debitis modi consequatur dolorum maiores, reiciendis nostrum, a, ipsam eius assumenda natus unde repellat deleniti.
@@ -44,8 +46,8 @@
 
 
 
-      <section id="section-stranger-things-trailer" class="container">
-        <div class="video-frame" aria-hidden="true"> 
+      <section id="section-stranger-things-trailer" class="container invert-element">
+        <div class="video-frame " aria-hidden="true"> 
           <iframe 
           width="500"
            height="300" 
@@ -71,7 +73,7 @@
 
 
       <section id="section-stranger-things-gallery">
-        <div class="container section-text">
+        <div class="container section-text ">
 
           <h2>Asegunda série mais assistida da Netflix</h2>
 
@@ -92,6 +94,16 @@
       </section>
 
       <section id="section-form" class="container">
+        <h2>O Clube Dungeons & Dragons</h2>
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo ad veritatis recusandae in. Explicabo, ea numquam perspiciatis voluptatem culpa animi obcaecati at in neque laboriosam maiores quis corporis cumque voluptate.Explicabo, ea numquam perspiciatis voluptatem culpa animi obcaecati at in neque laboriosam maiores quis corporis cumque voluptate.
+        </p>
+
+        <div class="form-content">
+
+          <h3>Entre para o clube de D&D e tenha experiencias de <span>outro mundo</span></h3>
+
+          <div class="form-container">
         <form>
           <label for="txtName">Nome Completo</label>
           <input type="text" name="name" id="txtName">
@@ -107,6 +119,8 @@
 
           <button type="button" id="bntSubscribe">Me inscrever</button>
         </form>
+       </div>
+      </div>
       </section>
     </main>
 
@@ -116,6 +130,24 @@
       </p>
 
       <img src="/assets/images/footer/logo.svg" alt="Logotipo Dio">
-    </footer>    
+    </footer> 
+    
+    <script type="module" src="assets/js/main">
+
+    </script>
+
+    <script>
+
+      window.addEventListener('click', function() {
+        const audio = document.getElementById('music');
+        audio.play();
+        audio.volume = 0.5;
+      })
+
+      function switchTheme() {
+        document.body.classList.toggle('dark-theme')
+        document.body.classList.toggle('light-theme')
+      }
+    </script>
   </body>
 </html>
